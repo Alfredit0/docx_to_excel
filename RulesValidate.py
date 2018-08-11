@@ -4,8 +4,8 @@ Created on Fri Aug 10 12:21:48 2018
 
 @author: Benito Alfredo Reyes
 """
-ACRONYM=['DRA.', 'DR.', 'M.', 'MTRO.', 'MTRA.', 'PROF.', 'LIC.', 'MTE', 'M.C.',
-        'ING.', 'M.C.E.']
+ACRONYM=['DRA. ', 'DR. ', 'M. ', 'MTRO. ', 'MTRA. ', 'PROF. ', 'LIC. ', 'MTE ', 'M.C. ',
+        'ING. ', 'M.C.E. ']
 
 def searchAcronym(text):
     text=text.upper()
@@ -17,9 +17,7 @@ def searchAcronym(text):
 def findDegreeFormat(text):
     return False
 
-def isNameWithDegree(text):
+def isName(text):
     if(searchAcronym(text)):                        
             return True
     return False
-
-print(isNameWithDegree('Dr. Sergio'))
