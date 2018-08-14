@@ -8,15 +8,15 @@ import ReadWord
 import RulesValidate
 import WriteExcel
 import io
-
-filePath='AGUASCALIENTES.docx'
+import datetime
+now = datetime.datetime.now()
+filePath='MEXICO/AGUASCALIENTES\AGUASCALIENTES.docx'
 content= io.StringIO(ReadWord.get_docx_text(filePath))
-
 university = ''
 name = ''
 mail = ''
 data = ''
-contactsData = []
+contactsData = [['PAIS', 'INSTITUCION', 'FACULTAD',	'CARGO',	'SEXO', 'NOMBRE_COMPLETO', 'CORREO_ELECTRONICO',	'TIPO_CORREO']]
 cont= 0
 for line in content.readlines(): #Reading line by line of the content
     if  line.find("Enviado el") == -1:
@@ -31,9 +31,9 @@ for line in content.readlines(): #Reading line by line of the content
                 data = data + line.strip() + ","    
     else:
         cont=cont+1        
-        contactsData.append(['MEXICO', university, data.rstrip(','),name, mail, '1'])
+        contactsData.append(['MEXICO', university,'', data.rstrip(','),'F',name, mail, '1'])
         name = ''
         mail = ''
         data = ''                
-
-WriteExcel.saveDataToExcel(contactsData, 'Contacts')
+hrId= now.strftime("%Y-%m-%d_%H_%M")
+WriteExcel.saveDataToExcel(contactsData, 'Contacts-'+hrId)
