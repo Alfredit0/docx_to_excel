@@ -10,7 +10,7 @@ import WriteExcel
 import io
 import datetime
 now = datetime.datetime.now()
-filePath='MEXICO/AGUASCALIENTES\AGUASCALIENTES.docx'
+filePath='MEXICO/CAMPECHE/CAMPECHE.docx'
 content= io.StringIO(ReadWord.get_docx_text(filePath))
 university = ''
 name = ''
@@ -36,4 +36,4 @@ for line in content.readlines(): #Reading line by line of the content
         mail = ''
         data = ''                
 hrId= now.strftime("%Y-%m-%d_%H_%M")
-WriteExcel.saveDataToExcel(contactsData, 'Contacts-'+hrId)
+WriteExcel.saveDataToExcel(contactsData, 'Contacts-CAMPECHE-'+hrId)
